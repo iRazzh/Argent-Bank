@@ -3,8 +3,13 @@ import "../../css/User/User.css"
 import Navigation from "../../components/Navigation/Navigation"
 import UserHeader from "../../components/UserHeader/UserHeader"
 import UserAccount from "../../components/UserAccount/UserAccount.jsx"
+import { useSelector } from "react-redux"
 
 export default function User() {
+
+    // useSelector nous permet d'extraire les datas venant de l'état du store Redux
+    const token = useSelector((state) => state.user.token);
+    console.log(token)
 
     const titleChecking = `Argent Bank Checking (x8349)`;
     const amountChecking = `$2,082.79`;
