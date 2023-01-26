@@ -1,19 +1,20 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import "../../css/UserHeader/UserHeader.css"
 
 import ChangeNameForm from "./ChangeNameForm";
 
 export default function UserHeader() {
-    // useSelector nous permet d'extraire les datas venant de l'état du store Redux
-    const token = useSelector((state) => state.user.token);
-    console.log(token)
+    // useState toggle for <ChangeNameForm />
+    const [ changeName, setChangeName ] = useState("");
+    const toggleChangeName = () => { setChangeName(changeName === "" ? "active" : "") ;}
 
     return(
         <>
             <div className="header">
                 <h1>Welcome back<br />Tony Jarvis!</h1>
-                <button className="edit-button">Edit Name</button>
-                <ChangeNameForm />
+
+                {changeName === "active" ? <ChangeNameForm toggleChangeName={toggleChangeName} /> : <button onClick={toggleChangeName} className={`edit-button ${changeName}`}>Edit Name</button>}
             </div>
         </>
     )

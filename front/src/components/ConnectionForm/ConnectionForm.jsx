@@ -9,6 +9,8 @@ import "../../css/ConnectionForm/ConnectionForm.css"
 export default function ConnectionForm() {
     // useState pour les inputs de connexion
     const [ itsInput, setItsInput ] = useState({ email:"", password:"" })
+    // useState pour les erreurs (true/false)
+    const [ error, setError ] = useState(false);
 
     // useSelector nous permet d'extraire les datas venant de l'état du store Redux
     const token = useSelector((state) => state.user.token);
@@ -16,7 +18,6 @@ export default function ConnectionForm() {
     // Va permettre de récupérer la valeur des inputs et changer son état.
     const inputChange = (e) => {
         const inputID = e.target.id;
-
         // Récupère tout ce qu'il y a dans 'itsInput' et ajoute la valeur du target dans {email:'', password:''} grâce à setItsInput.
         setItsInput({
             ...itsInput, 
@@ -44,6 +45,7 @@ export default function ConnectionForm() {
             dispatchMethod(itsToken(json.body.token));
         })
         .catch((error) => {
+            setError(true);
             setItsInput({
                 ...itsInput, 
             });
@@ -72,6 +74,7 @@ export default function ConnectionForm() {
                     <input type="checkbox" id="remember-me" />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
+                {error && <p style={{color: "red"}}>There is an error in your email or password.</p>}
                 <button type="submit" className="sign-in-button">Sign In</button>
                 </form>
             </section>
