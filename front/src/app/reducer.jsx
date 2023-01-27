@@ -6,15 +6,23 @@ export const userSlice = createSlice({
     // The initial state value for this slice of state.
     initialState: {
       token: "",
+      firstName: "",
+      lastName: "",
     },
     // An object containing Redux "case reducer" functions (functions intended to handle a specific action type, equivalent to a single case statement in a switch).
     reducers: {
       itsToken: (state, action) => {
         state.token = action.payload;
       },
+      itsFirstname: (state, action) => {
+        state.firstName = action.payload;
+      },
+      itsLastname: (state, action) => {
+        state.lastName = action.payload;
+      }
     },
   });
   
-  export const { itsToken } = userSlice.actions;
+  export const { itsToken, itsFirstname, itsLastname } = userSlice.actions;
   
   export const userReducer = userSlice.reducer;
