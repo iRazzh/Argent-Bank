@@ -7,10 +7,6 @@ import { useSelector } from "react-redux"
 
 export default function User() {
 
-    // useSelector nous permet d'extraire les datas venant de l'état du store Redux
-    const token = useSelector((state) => state.user.token);
-    console.log(token)
-
     // Sécurité si la page m'affiche quelque chose, return ok 
     // Si la page ne m'affiche rien, l'utilisateur n'a rien à faire là donc return Navigate homepage
     
