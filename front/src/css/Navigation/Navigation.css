@@ -4,7 +4,6 @@
     align-items: center;
     padding: 5px 20px;
 }
-  
 .main-nav a {
     font-weight: bold;
     color: #2c3e50;
@@ -13,7 +12,19 @@
 .main-nav a.router-link-exact-active {
     color: #42b983;
 }
-
+.main-nav .main-nav-firstname{
+    margin: 0;
+    margin-right: 2rem;
+}
+.main-nav-signout{
+    cursor: pointer;
+}
+.main-nav div {
+    display: flex;
+}
+.main-nav div p{
+    margin: 00;
+}
 .main-nav-item {
     text-decoration: none;
     margin-right: 0.5rem;

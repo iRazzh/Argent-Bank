@@ -11,8 +11,8 @@ export default function UserHeader() {
 
     // useSelector nous permet d'extraire les datas venant de l'état du store Redux
     const token = useSelector((state) => state.user.token);
-    const firstName = useSelector((state) => state.user.firstName)
-    const lastName = useSelector((state) => state.user.lastName)
+    const firstName = useSelector((state) => state.user.firstName);
+    const lastName = useSelector((state) => state.user.lastName);
 
     // useState pour les inputs de connexion
     const [ dataUserName, setDataUserName ] = useState({ firstName:"", lastName:"" })
@@ -80,13 +80,13 @@ export default function UserHeader() {
                 <h1>Welcome back<br />{firstName + ' ' + lastName}!</h1>
 
                 {changeName === "active" ? 
-                    <form onSubmit={submitChangeName}>
-                        <input id="firstName" type="text" placeholder="Firstname" onChange={(e) => setChangeFirstname(e.target.value)}/>
-                        <input id="lastName" type="text"  placeholder="Lastname" onChange={(e) => setChangeLastname(e.target.value)} />
+                    <form onSubmit={submitChangeName} className="modify-user-name">
+                        <input id="firstName" type="text" placeholder={firstName} onChange={(e) => setChangeFirstname(e.target.value)}/>
+                        <input id="lastName" type="text"  placeholder={lastName} onChange={(e) => setChangeLastname(e.target.value)} />
                         
                         {errorUpdate && <p style={{color: "red"}}>There is an error in your firstname or lastname.</p>}
                         
-                        <button type="submit" className="sign-in-button">Save</button>
+                        <button type="submit" className="sign-in-button" id="save-button">Save</button>
                         <button type="submit" className="sign-in-button" onClick={toggleChangeName}>Cancel</button>
                     </form> 
                 :
