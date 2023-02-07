@@ -1,13 +1,20 @@
 import "../../css/Navigation/Navigation.css"
 import argentBankLogo from "../../assets/argentBankLogo.png"
 
+import { itsToken } from "../../app/reducer"
 import { Link } from "react-router-dom"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Navigation() {
     // useSelector nous permet d'extraire les datas venant de l'état du store Redux
     const token = useSelector((state) => state.user.token);
     const firstName = useSelector((state) => state.user.firstName);
+
+    // useDispatch ne peut pas être appelé dans un callback étant donné que c'est une fonction donc const.
+    const dispatchMethod = useDispatch();
+    const Logout = () => {
+        dispatchMethod(itsToken(null))
+    }
 
     return(
         <>
@@ -20,7 +27,7 @@ export default function Navigation() {
                     {token ? 
                         <>
                             <p className="main-nav-firstname">{firstName}</p>
-                            <p className="main-nav-signout">Sign Out</p>
+                            <p onClick={Logout} className="main-nav-signout">Sign Out</p>
                         </>
                     :                    
                         <Link to="/connection" className="main-nav-item">
