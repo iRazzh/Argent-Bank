@@ -208,6 +208,89 @@ paths:
           description: Bad request.
         '500':
           description: Internal Server Error
+  /user/wallets/{walletId}/transactions/{transactionsId}/notes:
+    put:
+      tags:
+        - User Transactions
+      summary: Adding a notes from a transaction
+      description: API for adding a notes from a detailed transaction
+      parameters:
+        - type: string
+          in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+        - type: integer
+          in: path
+          name: walletId
+          description: User wallet Id
+          required: true
+        - type: integer
+          in: path
+          name: transactionsId
+          description: User transactions Id
+          required: true
+        - in: body
+          name: body
+          description: Add notes detailed transaction
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionsAddNotes'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Notes from detailed transaction added successully
+          schema:
+            $ref: '#/definitions/Transactions'
+        '400':
+          description: Bad request.
+        '500':
+          description: Internal Server Error
+  /user/wallets/{walletId}/transactions/{transactionsId}/notes/{notesId}:
+    delete:
+      tags:
+        - User Transactions
+      summary: Delete a notes from a transaction
+      description: API for deleting a notes from a detailed transaction
+      parameters:
+        - type: string
+          in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+        - type: integer
+          in: path
+          name: walletId
+          description: User wallet Id
+          required: true
+        - type: integer
+          in: path
+          name: transactionsId
+          description: User transactions Id
+          required: true
+        - in: body
+          name: body
+          description: Add notes detailed transaction
+          required: true
+          schema:
+            $ref: '#/definitions/TransactionsDeleteNotes'
+        - type: integer
+          in: path
+          name: notesId
+          description: ID Notes detailed transaction
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Notes from a detailed transaction deleted successully
+          schema:
+            $ref: '#/definitions/Transactions'
+        '400':
+          description: Bad request.
+        '500':
+          description: Internal Server Error
 securityDefinitions:
   Bearer:
     type: apiKey
@@ -286,3 +369,13 @@ definitions:
     properties:
       category:
         type: string
+  TransactionsAddNotes:
+    type: object
+    properties: 
+      notes: 
+        type: string
+  TransactionsDeleteNotes:
+    type: object
+    properties: 
+      notesId: 
+        type: integer
