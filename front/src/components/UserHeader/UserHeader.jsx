@@ -14,7 +14,7 @@ export default function UserHeader() {
     const firstName = useSelector((state) => state.user.firstName);
     const lastName = useSelector((state) => state.user.lastName);
 
-    // useState pour les inputs de connexion
+    // useState pour les datas lors de la connexion
     const [ dataUserName, setDataUserName ] = useState({ firstName:"", lastName:"" })
     // useState pour les erreurs (true/false)
     const [ errorUserName, setErrorUserName ] = useState(false);

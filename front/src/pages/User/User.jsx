@@ -3,12 +3,8 @@ import "../../css/User/User.css"
 import Navigation from "../../components/Navigation/Navigation"
 import UserHeader from "../../components/UserHeader/UserHeader"
 import UserAccount from "../../components/UserAccount/UserAccount.jsx"
-import { useSelector } from "react-redux"
 
 export default function User() {
-
-    // Sécurité si la page m'affiche quelque chose, return ok 
-    // Si la page ne m'affiche rien, l'utilisateur n'a rien à faire là donc return Navigate homepage
     
     const titleChecking = `Argent Bank Checking (x8349)`;
     const amountChecking = `$2,082.79`;
