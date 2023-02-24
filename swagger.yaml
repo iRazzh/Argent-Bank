@@ -112,7 +112,7 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-  /user/wallets/{walletId}/transactions:
+  /user/wallets/{userId}/transactions:
     get:
       tags:
         - User Transactions
@@ -126,8 +126,8 @@ paths:
           required: true
         - type: integer
           in: path
-          name: walletId
-          description: User wallet Id
+          name: userId
+          description: User ID for the wallet transactions
           required: true
       responses:
         '200':
@@ -138,7 +138,7 @@ paths:
           description: Bad request.
         '500':
           description: Internal Server Error
-  /user/wallets/{walletId}/transactions/{transactionsId}:
+  /user/wallets/{userId}/transactions/{transactionsId}:
     get:
       tags:
         - User Transactions
@@ -152,8 +152,8 @@ paths:
           required: true
         - type: integer
           in: path
-          name: walletId
-          description: User wallet Id
+          name: userId
+          description: User ID for the wallet transactions
           required: true
         - type: integer
           in: path
@@ -169,7 +169,7 @@ paths:
           description: Bad request.
         '500':
           description: Internal Server Error
-  /user/wallets/{walletId}/transactions/{transactionsId}/category:
+  /user/wallets/{userId}/transactions/{transactionsId}/category:
     put:
       tags:
         - User Transactions
@@ -183,8 +183,8 @@ paths:
           required: true
         - type: integer
           in: path
-          name: walletId
-          description: User wallet Id
+          name: userId
+          description: User ID for the wallet transactions
           required: true
         - type: integer
           in: path
@@ -208,7 +208,7 @@ paths:
           description: Bad request.
         '500':
           description: Internal Server Error
-  /user/wallets/{walletId}/transactions/{transactionsId}/notes:
+  /user/wallets/{userId}/transactions/{transactionsId}/notes:
     post:
       tags:
         - User Transactions
@@ -222,8 +222,8 @@ paths:
           required: true
         - type: integer
           in: path
-          name: walletId
-          description: User wallet Id
+          name: userId
+          description: User ID for the wallet transactions
           required: true
         - type: integer
           in: path
@@ -247,7 +247,7 @@ paths:
           description: Bad request.
         '500':
           description: Internal Server Error
-  /user/wallets/{walletId}/transactions/{transactionsId}/notes/{notesId}:
+  /user/wallets/{userId}/transactions/{transactionsId}/notes/{notesId}:
     delete:
       tags:
         - User Transactions
@@ -261,8 +261,8 @@ paths:
           required: true
         - type: integer
           in: path
-          name: walletId
-          description: User wallet Id
+          name: userId
+          description: User ID for the wallet transactions
           required: true
         - type: integer
           in: path
